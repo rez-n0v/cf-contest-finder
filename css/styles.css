@@ -1,0 +1,102 @@
+/* html component selector */
+html,body {
+    margin: 0;
+    height: 100%;
+}
+
+body {
+    text-align: center;
+    background-image: -webkit-linear-gradient(70deg,#9ab3f5 50%, #a3d8f4 50%);
+    color: white;
+    font-family: 'Open Sans', sans-serif;
+    height: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+h3,h1 {
+    font-family: 'Commissioner', sans-serif;
+    font-weight: 600;
+}
+
+/* class selector */
+/* navbar */
+.navbar {
+    display: flex;
+    padding-top: 20px;
+}
+
+.brand-title {
+    display: inline-block;
+    font-size: 24px;
+    margin-right: auto;
+    padding-left: 10px;
+}
+
+.navbar-buttons {
+    display: inline-block;
+    margin: auto 0 auto auto;
+}
+
+.navbar-buttons a {
+    font-family: 'Commissioner', sans-serif;
+    padding: 0 10px;
+    color: white;
+    text-decoration: none;
+    font-weight: 400;
+}
+
+.navbar-buttons a:hover {
+    color: #7579e7;
+}
+
+.navbar-buttons a.active {
+    color: #7579e7;
+}
+
+/* body */
+.home-content {
+    max-width: 400px;
+    margin: 50px auto;
+    background: #7579e7;
+    border-radius: 5px;
+    box-shadow: 5px 5px 15px -5px rgb(0, 0, 0, 0.3);
+}
+
+.search-form {
+    padding: 30px;
+    margin: 20% auto;
+}
+
+.search-item {
+    min-height: 30px;
+    display: block;
+    width: 80%;
+    border: none;
+    padding: 0;
+    margin: 0 auto;
+    border-radius: 2px;
+    text-align: center;
+}
+
+input.search-item {
+    line-height: 40px;
+}
+
+button.search-item {
+    background-color: #9ab3f5;
+    font-weight: 600;
+    font-size: large;
+    color: white;
+    border: 2px solid #7579e7;
+    border-radius: 4px;
+    transition-duration: 0.4s;
+    padding: 10px 50px;
+    margin: 40px auto 10px auto;
+    width: auto;   
+}
+
+button.search-item:hover {
+    background-color: #cedbff;
+    color: #393b7c;
+}
