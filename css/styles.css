@@ -19,6 +19,10 @@ h3,h1 {
     font-weight: 600;
 }
 
+footer {
+    margin-top: 20px;
+}
+
 /* class selector */
 /* navbar */
 .navbar {
@@ -56,31 +60,39 @@ h3,h1 {
 
 /* body */
 .home-content {
-    max-width: 400px;
-    margin: 50px auto;
+    max-width: 750px;
+    margin: 50px auto 0 auto;
     background: #7579e7;
-    border-radius: 5px;
+    border-radius: 2px;
     box-shadow: 5px 5px 15px -5px rgb(0, 0, 0, 0.3);
 }
 
 .search-form {
     padding: 30px;
-    margin: 20% auto;
+    margin: 0 auto;
 }
 
 .search-item {
     min-height: 30px;
-    display: block;
-    width: 80%;
+    display: inline-block;
+    width: 28%;
     border: none;
     padding: 0;
     margin: 0 auto;
     border-radius: 2px;
     text-align: center;
+    background: none;
+    border-bottom: 2px solid #ccc;
+    color: white;
+    font-size: 100%;
 }
 
 input.search-item {
     line-height: 40px;
+}
+
+input.search-item:focus {
+    border-bottom: 3px solid white;
 }
 
 button.search-item {
@@ -92,11 +104,25 @@ button.search-item {
     border-radius: 4px;
     transition-duration: 0.4s;
     padding: 10px 50px;
-    margin: 40px auto 10px auto;
-    width: auto;   
+    margin: 10px auto 10px 20px;
+    width: auto;
+    letter-spacing: 1.1px;
 }
 
 button.search-item:hover {
     background-color: #cedbff;
     color: #393b7c;
+}
+
+.vs-component {
+    padding-left: 4px;
+    padding-right: 4px;
+}
+
+/* search results */
+.search-results {
+    width: 750px;
+    height: 50%;
+    background-color: white;
+    margin: 0 auto 0 auto;
 }
