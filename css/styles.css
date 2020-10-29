@@ -123,6 +123,7 @@ button.search-item:hover {
 .search-results {
     width: 750px;
     height: 50%;
-    background-color: white;
+    background-color: #7579e7;
+    opacity: 0.4;
     margin: 0 auto 0 auto;
 }
