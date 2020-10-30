@@ -6,7 +6,7 @@ html,body {
 
 body {
     text-align: center;
-    background-image: -webkit-linear-gradient(70deg,#9ab3f5 50%, #a3d8f4 50%);
+    background-image: -webkit-linear-gradient(70deg,#16213e 50%, #e94560 85%);
     color: white;
     font-family: 'Open Sans', sans-serif;
     height: 100%;
@@ -20,7 +20,9 @@ h3,h1 {
 }
 
 footer {
-    margin-top: 20px;
+    margin-top: 40px;
+    opacity: 0.8;
+    font-size: small;
 }
 
 /* class selector */
@@ -35,6 +37,7 @@ footer {
     font-size: 24px;
     margin-right: auto;
     padding-left: 10px;
+    color: white;
 }
 
 .navbar-buttons {
@@ -51,18 +54,18 @@ footer {
 }
 
 .navbar-buttons a:hover {
-    color: #7579e7;
+    color: #16213e;
 }
 
 .navbar-buttons a.active {
-    color: #7579e7;
+    color: #16213e;
 }
 
 /* body */
 .home-content {
     max-width: 750px;
     margin: 50px auto 0 auto;
-    background: #7579e7;
+    background: #1a1a2e;
     border-radius: 2px;
     box-shadow: 5px 5px 15px -5px rgb(0, 0, 0, 0.3);
 }
@@ -79,9 +82,8 @@ footer {
     border: none;
     padding: 0;
     margin: 0 auto;
-    border-radius: 2px;
+    border-radius: 3px;
     text-align: center;
-    background: none;
     border-bottom: 2px solid #ccc;
     color: white;
     font-size: 100%;
@@ -89,6 +91,7 @@ footer {
 
 input.search-item {
     line-height: 40px;
+    background: #3b3b4e;
 }
 
 input.search-item:focus {
@@ -96,11 +99,11 @@ input.search-item:focus {
 }
 
 button.search-item {
-    background-color: #9ab3f5;
-    font-weight: 600;
+    background-color: #1a1a2e;
+    font-weight: 500;
     font-size: large;
     color: white;
-    border: 2px solid #7579e7;
+    border: 2px solid white;
     border-radius: 4px;
     transition-duration: 0.4s;
     padding: 10px 50px;
@@ -111,8 +114,9 @@ button.search-item {
 }
 
 button.search-item:hover {
-    background-color: #cedbff;
-    color: #393b7c;
+    background-color: #e94560;
+    color: white;
+    border: 2px solid #e94560;
 }
 
 .vs-component {
@@ -128,9 +132,10 @@ button.search-item:hover {
     justify-content: center;
     max-width: 750px;
     height: 50%;
-    background-color: #7579e756;
+    background-color: #1a1a2e56;
     /* opacity: 0.4; */
     margin: 0 auto 0 auto;
+    padding-bottom: 30px;
 }
 
 #searchResultsP {
@@ -142,8 +147,12 @@ button.search-item:hover {
     padding: 10px 10px;
     text-decoration: none;
     color: rgb(255, 255, 255);
-    background-color:  #7579e7;
+    background-color:  #1a1a2e;
     border: 1px solid  #b0b3ff8e;
     border-radius: 10px;
     display: none;
+}
+
+.messageLinks:hover {
+    background-color: #37374c;
 }
