@@ -161,7 +161,7 @@ button.search-item:hover {
 
 /* about us */
 .about-container {
-    padding: 30px 0;
+    padding: 10px 0;
 }
 
 .about-container p {
@@ -173,6 +173,10 @@ button.search-item:hover {
 .my-image{
     margin-top: 2rem;
     margin-bottom: 2rem;
+}
+
+.my-image img {
+    border-radius: 50%;
 }
 
 /* fa icons */
@@ -203,7 +207,7 @@ button.search-item:hover {
     background-color: #343459;
     padding: 2px;
     height: 500px;
-    width: 350px;
+    max-width: 350px;
     margin: 0 10px 20px;
     display: inline-block;
 }
