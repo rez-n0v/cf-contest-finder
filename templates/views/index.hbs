@@ -26,7 +26,7 @@
     <header>
         <div class="navbar">
             <h3 class="brand-title">CF Contest Finder</h3>
-            <div id="navbar" class="navbar-buttons">
+            <div class="navbar-buttons">
                 <a class="active" href="/">Home</a>
                 <a href="/howto">How To</a>
                 <a href="/about">About</a>
@@ -40,6 +40,25 @@
                 <input id="input1" class="search-item" type="text" placeholder="Codeforces Handle">
                 <span class="vs-component">V/S</span>
                 <input id="input2" class="search-item" type="text" placeholder="Codeforces Handle">
+                <div class="search-radio">
+                    <br>
+                    <div class="radio-button">
+                        <input type="radio" name="contest-type" value="1">
+                        <label for="d1">Div. 1</label>
+                    </div>
+                    <div class="radio-button">
+                        <input type="radio" name="contest-type" value="2">
+                        <label for="d2">Div. 2</label>
+                    </div>
+                    <div class="radio-button">
+                        <input type="radio" name="contest-type" value="3">
+                        <label for="d3">Div. 3</label> 
+                    </div>
+                    <div class="radio-button">
+                        <input type="radio" name="contest-type" value="0">
+                        <label for="other">Other</label> <br>
+                    </div>
+                </div>  
                 <button class="search-item" type="submit">Find Contest</button>
             </div>
         </form>
@@ -50,8 +69,6 @@
         <a id="message1" class="messageLinks" href="#" target="_blank"></a>
         <a id="message2" class="messageLinks" href="#" target="_blank"></a>
         <a id="message3" class="messageLinks" href="#" target="_blank"></a>
-        <a id="message4" class="messageLinks" href="#" target="_blank"></a>
-        <a id="message5" class="messageLinks" href="#" target="_blank"></a>
     </div>
 
     <footer>

@@ -1,13 +1,12 @@
 const request = require('request')
 
-const getContests = (user1, user2, callback) => {
+const getContests = (user1, user2, search, callback) => {
   const contestListUrl = `https://codeforces.com/api/contest.list`;
   const userOneUrl = `https://codeforces.com/api/user.rating?handle=${user1}`;
   const userTwoUrl = `https://codeforces.com/api/user.rating?handle=${user2}`;
 
   let contestList = [];
-  let userContests = [];
-  let uniqueContests = [];
+  let userContests = new Set();
 
   request({ url: userOneUrl, json: true }, (error, { body }) => {
     if (error) {
@@ -17,10 +16,11 @@ const getContests = (user1, user2, callback) => {
     } else {
       const res = body.result;
       for (let i = 0; i < res.length; i++) {
-        userContests.push({
+        let obj = {
           contestId: res[i].contestId,
           contestName: res[i].contestName
-        });
+        };
+        userContests.add(obj);
       }
     }
 
@@ -32,48 +32,61 @@ const getContests = (user1, user2, callback) => {
       } else {
         const res = body.result;
         for (let i = 0; i < res.length; i++) {
-          userContests.push({
+          let obj = {
             contestId: res[i].contestId,
             contestName: res[i].contestName
-          });
+          };
+          userContests.add(obj);
         }
       }
-
-      const getUniqueContests = (arr, key) => {
-        return [...new Map(arr.map(item => [item[key], item])).values()];
-      }
-      uniqueContests = getUniqueContests(userContests, 'contestId');
-
 
       request({ url: contestListUrl, json: true }, (error, { body }) => {
         if (error) {
           callback('Unable to connect to the network services :(', undefined);
         } else {
           const res = body.result;
-          for (let i = 0; i < 30; i++) {
+          let n = 0;
+          for (let i = 0; i < res.length; i++) {
             if (res[i].phase === "FINISHED") {
-              contestList.push({
-                contestId: res[i].id,
-                contestName: res[i].name
-              });
+              var contestType = "Div. " + search;
+              if(search === "0" || !search)
+              {
+                let obj = {
+                  contestId: res[i].contestId,
+                  contestName: res[i].contestName
+                };
+                if(!userContests.has(obj))
+                {
+                    contestList.push({
+                      contestId: res[i].id,
+                      contestName: res[i].name
+                    });
+                    n++;
+                }
+              }
+              else
+              {
+                var contest = JSON.stringify(res[i].name);
+                if(contest.includes(contestType))
+                {
+                  let obj = {
+                    contestId: res[i].contestId,
+                    contestName: res[i].contestName
+                  };
+                  if(!userContests.has(obj))
+                  {
+                      contestList.push({
+                        contestId: res[i].id,
+                        contestName: res[i].name
+                      });
+                      n++;
+                  }
+                }
+              }
             }
+            if(n === 3)
+              break;
           }
-        }
-
-        const removeByKey = (arr, key, value) => {
-          let i = arr.length;
-          while (i--) {
-            if (arr[i]
-              && arr[i].hasOwnProperty(key)
-              && (arguments.length > 2 && arr[i][key] === value)) {
-              arr.splice(i, 1);
-            }
-          }
-          return arr;
-        }
-
-        for (let i = 0; i < uniqueContests.length; i++) {
-          removeByKey(contestList, 'contestId', uniqueContests[i].contestId);
         }
         callback(undefined, contestList);
       });

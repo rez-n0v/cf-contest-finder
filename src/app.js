@@ -42,7 +42,13 @@ app.get('/contests', (req, res) => {
     });
   }
 
-  getContests(req.query.user1, req.query.user2, (error, data) => {
+  let search = "";
+  if(!req.query.search)
+    search = "0";
+  else
+    search = req.query.search;
+
+  getContests(req.query.user1, req.query.user2, search, (error, data) => {
     if (error) {
       return res.send({
         error

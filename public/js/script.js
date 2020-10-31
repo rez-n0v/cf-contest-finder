@@ -1,20 +1,35 @@
 const inputForm = document.querySelector('#search-form');
 const inputElement1 = document.querySelector('#input1');
 const inputElement2 = document.querySelector('#input2');
+const inputRadio = document.getElementsByName("contest-type");
 
 inputForm.addEventListener('submit', (e) => {
   e.preventDefault();
 
-  for (let i = 1; i <= 5; i++) {
+  for (let i = 1; i <= 3; i++) {
     document.getElementById(`message${i}`).style.display = 'none';
   }
 
   const userOneHandle = inputElement1.value;
   const userTwoHandle = inputElement2.value;
+  var searchQuery = "";
+
+  var found = false;
+  var i = 0;
+  while (!found && i < inputRadio.length)
+  {
+    if(inputRadio[i].checked)
+    {
+      searchQuery = inputRadio[i].value;
+      found = true;
+    }
+    i++;
+  }
 
   document.getElementById('message3').style.display = 'block';
   document.getElementById('message3').innerHTML = '<img src="/img/loading.gif">';
-  const searchUrl = window.location.href + 'contests?user1=' + userOneHandle + '&user2=' + userTwoHandle;
+  const searchUrl = window.location.href + 'contests?user1=' + userOneHandle + '&user2=' + userTwoHandle + '&search=' + searchQuery;
+  console.log(searchUrl);
 
   fetch(searchUrl).then((response) => {
     response.json().then((data) => {
@@ -34,14 +49,6 @@ inputForm.addEventListener('submit', (e) => {
         document.getElementById('message3').target = '_blank';
         document.getElementById('message3').innerHTML = data[2].contestName;
         document.getElementById('message3').href = `https://codeforces.com/contest/${data[2].contestId}`;
-
-        document.getElementById('message4').style.display = 'block';
-        document.getElementById('message4').innerHTML = data[3].contestName;
-        document.getElementById('message4').href = `https://codeforces.com/contest/${data[3].contestId}`;
-
-        document.getElementById('message5').style.display = 'block';
-        document.getElementById('message5').innerHTML = data[4].contestName;
-        document.getElementById('message5').href = `https://codeforces.com/contest/${data[4].contestId}`;
       }
     });
   });

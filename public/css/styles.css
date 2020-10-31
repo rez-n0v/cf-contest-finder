@@ -80,7 +80,7 @@ footer {
 .search-item {
     min-height: 30px;
     display: inline-block;
-    width: 28%;
+    width: 40%;
     border: none;
     padding: 0;
     margin: 0 auto;
@@ -109,7 +109,7 @@ button.search-item {
     border-radius: 4px;
     transition-duration: 0.4s;
     padding: 10px 50px;
-    margin: 10px auto 10px 20px;
+    margin: 20px 0 10px 0;
     width: auto;
     letter-spacing: 1.1px;
     cursor: pointer;
@@ -122,8 +122,13 @@ button.search-item:hover {
 }
 
 .vs-component {
-    padding-left: 4px;
-    padding-right: 4px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.radio-button {
+    padding: 0 20px;
+    display: inline-block;
 }
 
 /* search results */
@@ -133,7 +138,7 @@ button.search-item:hover {
     align-items: center;
     justify-content: center;
     max-width: 750px;
-    height: 50%;
+    height: 40%;
     background-color: #1a1a2e56;
     /* opacity: 0.4; */
     margin: 0 auto 0 auto;
@@ -161,7 +166,10 @@ button.search-item:hover {
 
 /* about us */
 .about-container {
-    padding: 10px 0;
+    margin: 30px 10px 10px 10px;
+    padding-top: 10px;
+    background-color: #1a1a2e;
+    box-shadow: 5px 5px 15px -5px rgb(0, 0, 0, 0.3);
 }
 
 .about-container p {
@@ -194,8 +202,7 @@ button.search-item:hover {
     box-sizing: border-box;
     background-color: #1a1a2e;
     padding: 10px;
-    margin: 10px;
-    transition: all 1s ease-in-out .1s; 
+    margin: 10px; 
     box-shadow: 5px 5px 15px -5px rgb(0, 0, 0, 0.3);
 }
 
@@ -251,16 +258,19 @@ button.search-item:hover {
 
 /* media query */
 @media only screen and (max-width: 420px) {
-    .navbar-buttons {
-        width: 60%;
-    }
-
     .navbar-buttons a {
-        padding: 0 2px;
+        padding: 0 20px;
     }
 
     .brand-title {
-        width: 140px;
+        width: max-content;
+        display: block;
+        margin: 10px auto 24px auto;
+        padding-left: 0;
+    }
+
+    .navbar {
+        display: block;
     }
 
     .vs-component {
