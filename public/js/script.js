@@ -14,8 +14,9 @@ inputForm.addEventListener('submit', (e) => {
 
   document.getElementById('message3').style.display = 'block';
   document.getElementById('message3').innerHTML = '<img src="/img/loading.gif">';
+  const searchUrl = window.location.href + 'contests?user1=' + userOneHandle + '&user2=' + userTwoHandle;
 
-  fetch(`http://localhost:3000/contests?user1=${userOneHandle}&user2=${userTwoHandle}`).then((response) => {
+  fetch(searchUrl).then((response) => {
     response.json().then((data) => {
       if (data.error) {
         document.getElementById('message3').innerHTML = data.error;
