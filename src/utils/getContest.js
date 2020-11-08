@@ -16,11 +16,7 @@ const getContests = (user1, user2, search, callback) => {
     } else {
       const res = body.result;
       for (let i = 0; i < res.length; i++) {
-        let obj = {
-          contestId: res[i].contestId,
-          contestName: res[i].contestName
-        };
-        userContests.add(obj);
+        userContests.add(Number(res[i].contestId));
       }
     }
 
@@ -32,13 +28,11 @@ const getContests = (user1, user2, search, callback) => {
       } else {
         const res = body.result;
         for (let i = 0; i < res.length; i++) {
-          let obj = {
-            contestId: res[i].contestId,
-            contestName: res[i].contestName
-          };
-          userContests.add(obj);
+          userContests.add(Number(res[i].contestId));
         }
       }
+
+      console.log(userContests);
 
       request({ url: contestListUrl, json: true }, (error, { body }) => {
         if (error) {
@@ -51,11 +45,7 @@ const getContests = (user1, user2, search, callback) => {
               var contestType = "Div. " + search;
               if(search === "0" || !search)
               {
-                let obj = {
-                  contestId: res[i].contestId,
-                  contestName: res[i].contestName
-                };
-                if(!userContests.has(obj))
+                if(userContests.has(Number(res[i].id)) === false)
                 {
                     contestList.push({
                       contestId: res[i].id,
@@ -69,11 +59,7 @@ const getContests = (user1, user2, search, callback) => {
                 var contest = JSON.stringify(res[i].name);
                 if(contest.includes(contestType))
                 {
-                  let obj = {
-                    contestId: res[i].contestId,
-                    contestName: res[i].contestName
-                  };
-                  if(!userContests.has(obj))
+                  if(userContests.has(Number(res[i].id)) === false)
                   {
                       contestList.push({
                         contestId: res[i].id,
